@@ -1,0 +1,30 @@
+body {
+	background-color: #FFFACD;
+	font-family: sans-serif;
+}
+
+h1{
+	color: #A0522D;
+}
+
+.fullwidth {
+	margin-top: 10px;
+	width : 100%;
+}
+
+blockquote {
+	font-style: italic; 
+}
+
+#alfabet {
+	list-style-type: none;
+}
+
+#alfabet li {
+	display:inline;
+} 
+
+dd {
+	margin-left:0;
+	font-weight: bold;
+} 
