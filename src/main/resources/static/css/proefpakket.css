@@ -24,7 +24,20 @@ blockquote {
 	display:inline;
 } 
 
+dt {
+	clear:left;
+	float: left;
+	width: 12em;
+}
+
 dd {
-	margin-left:0;
+	margin-left: 15em;
 	font-weight: bold;
-} 
+}
+
+.fout {
+	background-color : red;
+	color : white;
+	margin : 1em;
+	padding : 0.5em;
+}
