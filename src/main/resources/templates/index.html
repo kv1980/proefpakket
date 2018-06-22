@@ -14,7 +14,7 @@
 	</ul>
 	<ul>
 		<li th:each='brouwer:${brouwers}'>
-			<a th:href='@{/brouwer/{id}(id=${brouwer.id})}' th:text='${brouwer.naam}'></a>
+			<a th:href='@{/brouwers/{id}(id=${brouwer.id})}' th:text='${brouwer.naam}'></a>
 		</li>	
 	</ul>
 </body>

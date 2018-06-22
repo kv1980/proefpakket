@@ -12,9 +12,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import be.vdab.proefpakket.entities.Brouwer;
 
 @Controller
-@RequestMapping("brouwer")
+@RequestMapping("brouwers")
 class BrouwerController {
-	private static final String BROUWER_VIEW = "brouwer";
+	private static final String BROUWER_VIEW = "brouwers/brouwer";
+	private static final String ONDERNEMINGSNUMMER_VIEW = "brouwers/ondernemingsnummer";
 	private static final String REDIRECT_BIJ_BROUWER_NIET_GEVONDEN= "redirect:/";
 	
 	@GetMapping("{brouwer}")
@@ -24,5 +25,14 @@ class BrouwerController {
 		}
 		redirectAttributes.addAttribute("fout","Brouwer niet gevonden: kies opnieuw een brouwer.");
 		return new ModelAndView(REDIRECT_BIJ_BROUWER_NIET_GEVONDEN);
+	}
+	
+	@GetMapping("/ondernemingsnummer/{brouwer}")
+	ModelAndView ondernemingsnummer(@PathVariable Optional<Brouwer> brouwer, RedirectAttributes redirectAttributes) {
+		if(brouwer.isPresent()) {
+			return new ModelAndView(ONDERNEMINGSNUMMER_VIEW)
+					.addObject("brouwer",),"ondernemingsNrForm",new OndernemingsNrForm());
+		}
+		
 	}
 }
