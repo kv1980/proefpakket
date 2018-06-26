@@ -18,7 +18,7 @@ class BrouwerController {
 	private static final String ONDERNEMINGSNUMMER_VIEW = "brouwers/ondernemingsnummer";
 	private static final String REDIRECT_BIJ_BROUWER_NIET_GEVONDEN= "redirect:/";
 	
-	@GetMapping("{brouwer}")
+	@GetMapping("/brouwer/{brouwer}")
 	ModelAndView brouwer(@PathVariable Optional<Brouwer> brouwer, RedirectAttributes redirectAttributes) {
 		if(brouwer.isPresent()) {
 			return new ModelAndView(BROUWER_VIEW,"brouwer",brouwer.get());
@@ -31,8 +31,10 @@ class BrouwerController {
 	ModelAndView ondernemingsnummer(@PathVariable Optional<Brouwer> brouwer, RedirectAttributes redirectAttributes) {
 		if(brouwer.isPresent()) {
 			return new ModelAndView(ONDERNEMINGSNUMMER_VIEW)
-					.addObject("brouwer",),"ondernemingsNrForm",new OndernemingsNrForm());
+					.addObject("brouwer",brouwer.get())
+					.addObject("ondernemingsNrForm",new OndernemingsNrForm());
 		}
-		
+		redirectAttributes.addAttribute("fout","Brouwer niet gevonden: kies opnieuw een brouwer.");
+		return new ModelAndView(REDIRECT_BIJ_BROUWER_NIET_GEVONDEN);
 	}
 }

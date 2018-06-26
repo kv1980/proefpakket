@@ -24,14 +24,25 @@ public class Brouwer implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@NotBlank
-	@SafeHtml
 	private String naam;
 	@Embedded
-	private Adres adres;	
+	private Adres adres;
+	@NotNull
 	@Positive
 	@OndernemingsNr
 	private Long ondernemingsNr;
+	
+	protected Brouwer() {
+	}
+
+	public Brouwer(String naam, Adres adres) {
+		this.naam = naam;
+		this.adres = adres;
+	}
+	
+	public void setOndernemingsNr(Long ondernemingsNr) {
+		this.ondernemingsNr = ondernemingsNr;
+	}
 
 	public long getId() {
 		return id;
@@ -48,4 +59,8 @@ public class Brouwer implements Serializable {
 	public Long getOndernemingsNr() {
 		return ondernemingsNr;
 	}
+
+
+
+
 }
