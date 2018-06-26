@@ -11,6 +11,17 @@
 	</entity>
 
 	<entity>
+		<entity-name>be.vdab.proefpakket.valueobjects.Adres</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>128</entity-height>
+		<entity-X-Coordinate>366</entity-X-Coordinate>
+		<entity-Y-Coordinate>100</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
 		<entity-name>be.vdab.proefpakket.entities.Gemeente</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>128</entity-height>
@@ -22,11 +33,22 @@
 	</entity>
 
 	<entity>
-		<entity-name>be.vdab.proefpakket.valueobjects.Adres</entity-name>
+		<entity-name>be.vdab.proefpakket.entities.Bestelling</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>128</entity-height>
+		<entity-height>166</entity-height>
+		<entity-X-Coordinate>120</entity-X-Coordinate>
+		<entity-Y-Coordinate>338</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>be.vdab.proefpakket.valueobjects.Klant</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>130</entity-height>
 		<entity-X-Coordinate>366</entity-X-Coordinate>
-		<entity-Y-Coordinate>100</entity-Y-Coordinate>
+		<entity-Y-Coordinate>356</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
