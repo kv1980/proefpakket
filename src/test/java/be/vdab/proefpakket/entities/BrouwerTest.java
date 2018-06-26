@@ -48,7 +48,7 @@ public class BrouwerTest {
 	}
 	
 	@Test
-	public void het_ondernemingsnummer_mag_geen_incorrect_controlegetal_hebben() {
+	public void het_ondernemingsnummer_mag_geen_incorrect_controlegetal_krijgen() {
 		brouwer.setOndernemingsNr(INCORRECT_ONDERNEMINGSNR);
 		Set<ConstraintViolation<Brouwer>> constraintViolations = validator.validate(brouwer);
         assertEquals( 1, constraintViolations.size() );
