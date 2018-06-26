@@ -27,11 +27,10 @@ blockquote {
 dt {
 	clear:left;
 	float: left;
-	width: 12em;
+	width: 18em;
 }
 
-dd {
-	margin-left: 15em;
+dd {8em;
 	font-weight: bold;
 }
 
@@ -40,4 +39,40 @@ dd {
 	color : white;
 	margin : 1em;
 	padding : 0.5em;
+}
+
+label {   
+	cursor: pointer; 
+} 
+
+input, select {
+	display : inline;
+	font-size: 1.1em;   
+	margin-bottom: 1em;   
+	margin-top: 0.2em; 
+	margin-left: 4em; 
+} 
+
+input:focus, textarea:focus, select:focus {
+	background-color: #FFFFD6 
+} 
+ 
+input[type='checkbox'], input[type='radio'] {
+	display: inline; 
+} 
+ 
+label span, .fout {
+	background-color: red;   
+	border-bottom-right-radius: 0.5em;   
+	border-top-left-radius: 0.5em;   
+	border-top-right-radius: 0.5em;   
+	box-shadow: 5px 5px #777777;   
+	margin-left: 0.5em;   
+	padding: 0.5em;   
+	color: white;   
+	font-weight: bold;
+}
+
+label span:empty, .fout:empty {
+	display: none; 
 }

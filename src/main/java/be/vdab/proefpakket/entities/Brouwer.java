@@ -8,11 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
-
-import org.hibernate.validator.constraints.SafeHtml;
 
 import be.vdab.proefpakket.constraints.OndernemingsNr;
 import be.vdab.proefpakket.valueobjects.Adres;

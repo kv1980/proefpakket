@@ -1,7 +1,6 @@
 package be.vdab.proefpakket.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -22,5 +21,11 @@ class DefaultBrouwerService implements BrouwerService {
 	@Override
 	public List<Brouwer> findByBeginNaam(String beginNaam) {
 		return repository.findByNaamStartingWithOrderByNaam(beginNaam);
+	}
+
+	@Override
+	@Transactional(readOnly = false, isolation = Isolation.READ_COMMITTED)
+	public void update(Brouwer brouwer) {
+		repository.save(brouwer);
 	}
 }
