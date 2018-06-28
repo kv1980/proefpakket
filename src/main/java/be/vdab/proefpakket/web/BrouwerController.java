@@ -30,8 +30,8 @@ class BrouwerController {
 	private static final String ONDERNEMINGSNUMMER_VIEW = "brouwers/ondernemingsnummer";
 	private static final String BESTELLING_STAP_1_VIEW = "brouwers/bestelling1";
 	private static final String BESTELLING_STAP_2_VIEW = "brouwers/bestelling2";
-	private static final String REDIRECT_BIJ_BROUWER_NIET_GEVONDEN= "redirect:/";
-	private static final String REDIRECT_BIJ_BROUWER_GEVONDEN= "redirect:/brouwer/{id}";
+	private static final String REDIRECT_NAAR_HOMEPAGE= "redirect:/";
+	private static final String REDIRECT_NAAR_BROUWERINFO= "redirect:/brouwer/{id}";
 	private final BrouwerService brouwerService;
 	private final GemeenteService gemeenteService;
 	private final BestellingService bestellingService;
@@ -49,7 +49,7 @@ class BrouwerController {
 			return new ModelAndView(BROUWER_VIEW,"brouwer",brouwer.get());
 		}
 		redirectAttributes.addAttribute("fout","Brouwer niet gevonden: kies opnieuw een brouwer.");
-		return new ModelAndView(REDIRECT_BIJ_BROUWER_NIET_GEVONDEN);
+		return new ModelAndView(REDIRECT_NAAR_HOMEPAGE);
 	}
 	
 	@GetMapping("/{brouwer}/ondernemingsnummer")
@@ -60,7 +60,7 @@ class BrouwerController {
 					.addObject(new OndernemingsNrForm());
 		}
 		redirectAttributes.addAttribute("fout","Brouwer niet gevonden: kies opnieuw een brouwer.");
-		return new ModelAndView(REDIRECT_BIJ_BROUWER_NIET_GEVONDEN);
+		return new ModelAndView(REDIRECT_NAAR_HOMEPAGE);
 	}
 	
 	@PostMapping("/{brouwer}/ondernemingsnummer")
@@ -75,10 +75,10 @@ class BrouwerController {
 			brouwer.get().setOndernemingsNr(form.getOndernemingsNr());
 			brouwerService.update(brouwer.get());
 			redirectAttributes.addAttribute("id",brouwer.get().getId());
-			return new ModelAndView(REDIRECT_BIJ_BROUWER_GEVONDEN);
+			return new ModelAndView(REDIRECT_NAAR_BROUWERINFO);
 		}
 		redirectAttributes.addAttribute("fout","Brouwer niet gevonden: kies opnieuw een brouwer.");
-		return new ModelAndView(REDIRECT_BIJ_BROUWER_NIET_GEVONDEN);
+		return new ModelAndView(REDIRECT_NAAR_HOMEPAGE);
 	}
 	
 	@GetMapping("/{brouwer}/bestelling")
@@ -89,7 +89,7 @@ class BrouwerController {
 					.addObject(new Bestelling());
 		}
 		redirectAttributes.addAttribute("fout","Brouwer niet gevonden: kies opnieuw een brouwer.");
-		return new ModelAndView(REDIRECT_BIJ_BROUWER_NIET_GEVONDEN);
+		return new ModelAndView(REDIRECT_NAAR_HOMEPAGE);
 	}
 	
 	@PostMapping(value="/{brouwer}/bestelling", params="stap2")
@@ -105,7 +105,7 @@ class BrouwerController {
 					 .addObject("gemeenten",gemeenteService.findAll());
 		}
 		redirectAttributes.addAttribute("fout","Brouwer niet gevonden: kies opnieuw een brouwer.");
-		return new ModelAndView(REDIRECT_BIJ_BROUWER_NIET_GEVONDEN);
+		return new ModelAndView(REDIRECT_NAAR_HOMEPAGE);
 	}
 	
 	@PostMapping(value="/{brouwer}/bestelling", params="stap1")
@@ -115,7 +115,7 @@ class BrouwerController {
 			return new ModelAndView(BESTELLING_STAP_1_VIEW,"brouwer",brouwer.get());
 		}
 		redirectAttributes.addAttribute("fout","Brouwer niet gevonden: kies opnieuw een brouwer.");
-		return new ModelAndView(REDIRECT_BIJ_BROUWER_NIET_GEVONDEN);
+		return new ModelAndView(REDIRECT_NAAR_HOMEPAGE);
 	}
 	
 	@PostMapping(value = "/{brouwer}/bestelling", params = "opslaan") 
@@ -131,9 +131,9 @@ class BrouwerController {
 				} 
 				bestellingService.create(bestelling);
 				sessionStatus.setComplete();
-				return new ModelAndView(REDIRECT_BIJ_BROUWER_GEVONDEN);
+				return new ModelAndView(REDIRECT_NAAR_HOMEPAGE);
 		}
 		redirectAttributes.addAttribute("fout","Brouwer niet gevonden: kies opnieuw een brouwer.");
-		return new ModelAndView(REDIRECT_BIJ_BROUWER_NIET_GEVONDEN);
+		return new ModelAndView(REDIRECT_NAAR_HOMEPAGE);
 	}
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><entities>
 	<entity>
-		<entity-name>be.vdab.proefpakket.entities.Brouwer</entity-name>
+		<entity-name>be.vdab.proefpakket.valueobjects.Klant</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>148</entity-height>
+		<entity-height>130</entity-height>
 		<entity-X-Coordinate>421</entity-X-Coordinate>
-		<entity-Y-Coordinate>-33</entity-Y-Coordinate>
+		<entity-Y-Coordinate>362</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -16,6 +16,17 @@
 		<entity-height>128</entity-height>
 		<entity-X-Coordinate>421</entity-X-Coordinate>
 		<entity-Y-Coordinate>179</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>be.vdab.proefpakket.entities.Brouwer</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>148</entity-height>
+		<entity-X-Coordinate>421</entity-X-Coordinate>
+		<entity-Y-Coordinate>-33</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -38,17 +49,6 @@
 		<entity-height>166</entity-height>
 		<entity-X-Coordinate>120</entity-X-Coordinate>
 		<entity-Y-Coordinate>160</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>be.vdab.proefpakket.valueobjects.Klant</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>130</entity-height>
-		<entity-X-Coordinate>421</entity-X-Coordinate>
-		<entity-Y-Coordinate>362</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
