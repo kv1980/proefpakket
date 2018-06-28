@@ -18,7 +18,7 @@
 			<span>Gemeente:</span> 
 			<span th:if="${#fields.hasErrors('klant.adres.gemeente')}" th:errors='*{klant.adres.gemeente}' class='fout'></span>   
 			<select th:field='*{klant.adres.gemeente}'>
-				<option th:each='gemeente:${gemeenten}' th:value ='${gemeente.id}' th:text='|${gemeente.postcode} ${gemeente.naam}|'></option>
+				<option th:each='gemeente:${gemeenten}' th:value='${gemeente.id}' th:text='|${gemeente.postcode} ${gemeente.naam}|'></option>
 			</select>
 		</label> 
 		<input type='submit' value='<< Stap 1' name='stap1'> 
