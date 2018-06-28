@@ -7,7 +7,7 @@
 		<dt>Oud ondernemingsnummer:</dt><dd th:if="${brouwer.ondernemingsNr != null}" th:text="${brouwer.ondernemingsNr}"></dd>
 								       <dd th:if="${brouwer.ondernemingsNr == null}">nog niet ingevuld</dd>
 	</dl>
-	<form th:action='@{/brouwers/ondernemingsnummer/{id}(id=${brouwer.id})}' th:object='${ondernemingsNrForm}' method='post'>
+	<form th:action='@{/brouwer/{id}/ondernemingsnummer(id=${brouwer.id})}' th:object='${ondernemingsNrForm}' method='post'>
 		<label>
 			Nieuw ondernemingsnummer: 
 			<input type='number' th:field='*{ondernemingsNr}' required autofocus>

@@ -27,6 +27,6 @@ public class Gemeente implements Serializable {
 	}
 
 	public String getNaam() {
-		return naam;
+		return naam.toUpperCase();
 	}
 }

@@ -10,18 +10,20 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.SafeHtml;
 
+import be.vdab.proefpakket.entities.Bestelling;
+
 @Embeddable
 public class Klant implements Serializable {
 	private static final long serialVersionUID = 1L;
-	@NotBlank
-	@SafeHtml
+	@NotBlank (groups = Bestelling.Stap1.class)
+	@SafeHtml (groups = Bestelling.Stap1.class)
 	private String voornaam;
-	@NotBlank
-	@SafeHtml
+	@NotBlank (groups = Bestelling.Stap1.class)
+	@SafeHtml (groups = Bestelling.Stap1.class)
 	private String familienaam;
-	@NotBlank
-	@SafeHtml
-	@Email
+	@NotBlank (groups = Bestelling.Stap1.class)
+	@SafeHtml (groups = Bestelling.Stap1.class)
+	@Email (groups = Bestelling.Stap1.class)
 	private String emailAdres;
 	@Embedded
 	@Valid

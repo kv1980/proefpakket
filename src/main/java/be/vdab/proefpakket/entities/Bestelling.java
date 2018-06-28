@@ -23,6 +23,8 @@ import be.vdab.proefpakket.valueobjects.Klant;
 @Table(name = "bestellingen")
 public class Bestelling implements Serializable {
 	private static final long serialVersionUID = 1L;
+	public interface Stap1{}
+	public interface Stap2{}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;

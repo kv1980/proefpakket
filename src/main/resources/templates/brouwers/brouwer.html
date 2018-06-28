@@ -10,6 +10,7 @@
 		<dt>Gemeente</dt><dd th:text="${brouwer.adres.gemeente.naam}"></dd>
 		<dt>Ondernemingsnummer</dt><dd th:text="${brouwer.ondernemingsNr}"></dd>
 	</dl>
-	<a th:href='@{/brouwers/ondernemingsnummer/{id}(id=${brouwer.id})}'>Ondernemingsnummer invullen</a>
+	<a th:href='@{/brouwer/{id}/ondernemingsnummer(id=${brouwer.id})}' class='linkBrouwer' >Ondernemingsnummer invullen  >></a>
+	<a th:href='@{/brouwer/{id}/bestelling(id=${brouwer.id})}' class='linkBrouwer' >Proefpakket aanvragen  >></a>
 </body>
 </html>

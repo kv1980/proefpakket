@@ -7,22 +7,25 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.SafeHtml;
 
+import be.vdab.proefpakket.entities.Bestelling;
 import be.vdab.proefpakket.entities.Gemeente;
 
 @Embeddable
 public class Adres implements Serializable {
 	private static final long serialVersionUID = 1L;
-	@NotBlank
-	@SafeHtml
+	@NotBlank (groups = Bestelling.Stap2.class)
+	@SafeHtml (groups = Bestelling.Stap2.class)
 	private String straat;
-	@NotBlank
-	@SafeHtml
+	@NotBlank (groups = Bestelling.Stap2.class)
+	@SafeHtml (groups = Bestelling.Stap2.class)
 	private String huisNr;
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "gemeenteId")
+	@NotNull (groups = Bestelling.Stap2.class)
 	private Gemeente gemeente;
 
 	public void setStraat(String straat) {
