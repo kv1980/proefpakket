@@ -56,7 +56,8 @@ class BrouwerController {
 	ModelAndView ondernemingsnummerVoorBewaren(@PathVariable Optional<Brouwer> brouwer, 
 											   RedirectAttributes redirectAttributes) {
 		if(brouwer.isPresent()) {
-			return new ModelAndView(ONDERNEMINGSNUMMER_VIEW,"brouwer",brouwer.get())
+			return new ModelAndView(ONDERNEMINGSNUMMER_VIEW)
+					.addObject("brouwer",brouwer.get())
 					.addObject(new OndernemingsNrForm());
 		}
 		redirectAttributes.addAttribute("fout","Brouwer niet gevonden: kies opnieuw een brouwer.");

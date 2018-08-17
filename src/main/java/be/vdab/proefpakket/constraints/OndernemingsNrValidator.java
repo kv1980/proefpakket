@@ -11,11 +11,9 @@ public class OndernemingsNrValidator implements ConstraintValidator<Ondernemings
 	
 	@Override
 	public boolean isValid(Long ondernemingsNr, ConstraintValidatorContext context) {
-		if (ondernemingsNr == null || ondernemingsNr < 0) {
-			return true;
+		if (ondernemingsNr == null || ondernemingsNr <=0) {
+			return false;
 		}
-		long laatsteTweeCijfers = ondernemingsNr % 100;
-		long controleGetal = 97 - (ondernemingsNr /100) % 97;
-		return laatsteTweeCijfers == controleGetal;
+		return ondernemingsNr % 100 == 97 - (ondernemingsNr /100) % 97;
 	}
 }

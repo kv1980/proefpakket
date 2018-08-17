@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 
 import be.vdab.proefpakket.constraints.OndernemingsNr;
 import be.vdab.proefpakket.valueobjects.Adres;
@@ -24,8 +22,6 @@ public class Brouwer implements Serializable {
 	private String naam;
 	@Embedded
 	private Adres adres;
-	@NotNull
-	@Positive
 	@OndernemingsNr
 	private Long ondernemingsNr;
 	
