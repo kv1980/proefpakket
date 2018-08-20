@@ -1,6 +1,7 @@
 package be.vdab.proefpakket.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,11 @@ class DefaultGemeenteService implements GemeenteService {
 	
 	DefaultGemeenteService(GemeenteRepository gemeenteRepository) {
 		this.gemeenteRepository = gemeenteRepository;
+	}
+	
+	@Override
+	public Optional<Gemeente> read(long id) {
+		return gemeenteRepository.findById(id);
 	}
 
 	@Override
