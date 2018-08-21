@@ -12,5 +12,6 @@
 	</dl>
 	<a th:href='@{/brouwer/{id}/ondernemingsnummer(id=${brouwer.id})}' class='linkBrouwer' >Ondernemingsnummer invullen  >></a>
 	<a th:href='@{/brouwer/{id}/bestelling(id=${brouwer.id})}' class='linkBrouwer' >Proefpakket aanvragen  >></a>
+	<a th:href='@{/brouwer/{plaatsnaam}/temperatuur(plaatsnaam=${brouwer.adres.gemeente.naam})}' class='linkBrouwer' >Huidige temperatuur  >></a>
 </body>
 </html>

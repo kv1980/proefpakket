@@ -1,5 +1,7 @@
 package be.vdab.proefpakket.restclients;
 
+import static org.junit.Assert.assertEquals;
+
 import java.math.BigDecimal;
 
 import org.junit.Test;
@@ -18,13 +20,12 @@ public class DefaultTemperatuurClientTest extends AbstractTransactionalJUnit4Spr
 	private DefaultTemperatuurClient client;
 	
 	@Test
-	public void temperatuur_wordt_correct_ingelezen() {
-		BigDecimal temp = client.getTemperatuur("Dentergem");
-		System.out.println("----------------------"+temp);
+	public void temperatuur_van_een_bestaande_plaats_wordt_ingelezen() {
+		assertEquals(BigDecimal.class, client.getTemperatuur("Dentergem").getClass());
 	}
 	
 	@Test (expected = TemperatuurNietGevondenException.class)
 	public void temperatuur_van_onbestaande_plaats_wordt_niet_ingelezen() {
-		BigDecimal temp = client.getTemperatuur("XXX");
+		assertEquals(BigDecimal.class, client.getTemperatuur("XXX").getClass());
 	}
 }

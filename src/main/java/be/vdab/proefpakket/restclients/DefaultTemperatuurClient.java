@@ -14,20 +14,20 @@ import be.vdab.proefpakket.exceptions.TemperatuurNietGevondenException;
 
 @Component
 class DefaultTemperatuurClient implements TemperatuurClient {
-	private final URI uri;
+	private final String uriTemplate;
 	private final RestTemplate restTemplate;
 	
-	DefaultTemperatuurClient(@Value("${weatherURL}") URI uri, RestTemplateBuilder builder){
-		this.uri = uri;
+	DefaultTemperatuurClient(@Value("${weatherURL}") String uriTemplate, RestTemplateBuilder builder){
+		this.uriTemplate = uriTemplate;
 		this.restTemplate = builder.build();
 	}
 	
 	@Override
 	public BigDecimal getTemperatuur(String plaatsnaam) {
 		try {
-			URI uriMetPlaatsnaam = URI.create(uri.toString().replace("XXX", plaatsnaam));
-			WeatherData data = restTemplate.getForObject(uriMetPlaatsnaam, WeatherData.class);
-			return data.getMainWeather().getTemp().setScale(1,RoundingMode.HALF_UP);
+			return restTemplate.getForObject(uriTemplate, WeatherData.class, plaatsnaam)
+					           .getMainWeather()
+					           .getTemp();
 		} catch (RestClientException ex) {
 			throw new TemperatuurNietGevondenException();
 		}

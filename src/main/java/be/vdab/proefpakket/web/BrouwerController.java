@@ -18,6 +18,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import be.vdab.proefpakket.entities.Bestelling;
 import be.vdab.proefpakket.entities.Brouwer;
+import be.vdab.proefpakket.exceptions.TemperatuurNietGevondenException;
+import be.vdab.proefpakket.restclients.TemperatuurClient;
 import be.vdab.proefpakket.services.BestellingService;
 import be.vdab.proefpakket.services.BrouwerService;
 import be.vdab.proefpakket.services.GemeenteService;
@@ -27,6 +29,7 @@ import be.vdab.proefpakket.services.GemeenteService;
 @SessionAttributes("bestelling")
 class BrouwerController {
 	private static final String BROUWER_VIEW = "brouwers/brouwer";
+	private static final String TEMPERATUUR_VIEW = "brouwers/temperatuur";
 	private static final String ONDERNEMINGSNUMMER_VIEW = "brouwers/ondernemingsnummer";
 	private static final String BESTELLING_STAP_1_VIEW = "brouwers/bestelling1";
 	private static final String BESTELLING_STAP_2_VIEW = "brouwers/bestelling2";
@@ -35,11 +38,13 @@ class BrouwerController {
 	private final BrouwerService brouwerService;
 	private final GemeenteService gemeenteService;
 	private final BestellingService bestellingService;
+	private final TemperatuurClient temperatuurClient;
 	
-	BrouwerController(BrouwerService brouwerService, BestellingService bestellingService, GemeenteService gemeenteService) {
+	BrouwerController(BrouwerService brouwerService, BestellingService bestellingService, GemeenteService gemeenteService, TemperatuurClient temperatuurClient) {
 		this.brouwerService = brouwerService;
 		this.bestellingService = bestellingService;
 		this.gemeenteService = gemeenteService;
+		this.temperatuurClient = temperatuurClient;
 	}
 
 	@GetMapping("/{brouwer}")
@@ -50,6 +55,18 @@ class BrouwerController {
 		}
 		redirectAttributes.addAttribute("fout","Brouwer niet gevonden: kies opnieuw een brouwer.");
 		return new ModelAndView(REDIRECT_NAAR_HOMEPAGE);
+	}
+	
+	@GetMapping("/{plaatsnaam}/temperatuur")
+	ModelAndView toonTemperatuur(@PathVariable String plaatsnaam) {
+		ModelAndView modelAndView = new ModelAndView(TEMPERATUUR_VIEW);
+		System.out.println("--------------------"+plaatsnaam+"----------"+temperatuurClient.getTemperatuur(plaatsnaam));
+		try {
+			modelAndView.addObject("temperatuur",temperatuurClient.getTemperatuur(plaatsnaam));
+		} catch (TemperatuurNietGevondenException ex) {
+			modelAndView.addObject("fout","De temperatuur van deze plaats werd niet gevonden.");
+		}
+		return modelAndView;
 	}
 	
 	@GetMapping("/{brouwer}/ondernemingsnummer")
