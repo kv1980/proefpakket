@@ -6,6 +6,5 @@ import java.util.Optional;
 import be.vdab.proefpakket.entities.Gemeente;
 
 public interface GemeenteService {
-	Optional<Gemeente> read(long id);
 	List<Gemeente> findAll();
 }

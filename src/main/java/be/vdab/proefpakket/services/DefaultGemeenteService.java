@@ -19,11 +19,6 @@ class DefaultGemeenteService implements GemeenteService {
 	DefaultGemeenteService(GemeenteRepository gemeenteRepository) {
 		this.gemeenteRepository = gemeenteRepository;
 	}
-	
-	@Override
-	public Optional<Gemeente> read(long id) {
-		return gemeenteRepository.findById(id);
-	}
 
 	@Override
 	public List<Gemeente> findAll() {
