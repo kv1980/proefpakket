@@ -60,7 +60,6 @@ class BrouwerController {
 	@GetMapping("/{plaatsnaam}/temperatuur")
 	ModelAndView toonTemperatuur(@PathVariable String plaatsnaam) {
 		ModelAndView modelAndView = new ModelAndView(TEMPERATUUR_VIEW);
-		System.out.println("--------------------"+plaatsnaam+"----------"+temperatuurClient.getTemperatuur(plaatsnaam));
 		try {
 			modelAndView.addObject("temperatuur",temperatuurClient.getTemperatuur(plaatsnaam));
 		} catch (TemperatuurNietGevondenException ex) {
