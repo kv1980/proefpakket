@@ -90,3 +90,8 @@ label span:empty, .fout:empty {
 	color : #A0522D;
 	background-color: white;
 }
+
+img {
+	margin : 20px;
+	width: 50%;
+}
